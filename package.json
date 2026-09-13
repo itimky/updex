@@ -1,0 +1,36 @@
+{
+  "author": "Tim Green",
+  "devDependencies": {
+    "prettier": "catalog:",
+    "turbo": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "engines": {
+    "node": ">=24.18.0"
+  },
+  "exports": {
+    "./app": "./pkg/app.ts",
+    "./model": "./pkg/model.ts"
+  },
+  "files": [
+    "pkg/app.ts",
+    "pkg/model.ts"
+  ],
+  "license": "ISC",
+  "name": "updex",
+  "packageManager": "pnpm@11.28.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itimky/updex"
+  },
+  "scripts": {
+    "check": "turbo run ci",
+    "fmt": "prettier . --log-level=warn --write",
+    "fmt:check": "prettier . --log-level=warn --check",
+    "test": "vitest run",
+    "type": "tsc --noEmit"
+  },
+  "type": "module",
+  "version": "1.0.0"
+}

@@ -1,0 +1,32 @@
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-26.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: ${{ github.event.release.tag_name }}
+      - env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          expected_tag="v$(jq -r .version package.json)"
+          if [[ "$RELEASE_TAG" != "$expected_tag" ]]; then
+            echo "::error::Release tag $RELEASE_TAG does not match package version $expected_tag"
+            exit 1
+          fi
+      - uses: ./.github/actions/check
+      - run: |
+          package_version="$(jq -r '.name + "@" + .version' package.json)"
+          if npm view "$package_version" version >/dev/null 2>&1; then
+            echo "::notice::$package_version is already published; skipping"
+          else
+            pnpm publish
+          fi
+name: Publish
+on:
+  release:
+    types:
+      - published
+permissions:
+  contents: read
+  id-token: write

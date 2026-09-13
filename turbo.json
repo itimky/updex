@@ -1,0 +1,21 @@
+{
+  "$schema": "https://turborepo.dev/schema.json",
+  "tasks": {
+    "ci": {
+      "dependsOn": ["fmt:check", "test", "type"],
+      "outputs": []
+    },
+    "fmt:check": {
+      "outputLogs": "errors-only",
+      "outputs": []
+    },
+    "test": {
+      "outputLogs": "errors-only",
+      "outputs": []
+    },
+    "type": {
+      "outputLogs": "errors-only",
+      "outputs": []
+    }
+  }
+}

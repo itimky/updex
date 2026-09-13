@@ -1,0 +1,15 @@
+description: Set up Node.js and pnpm, install dependencies, and run repository checks.
+name: Check
+runs:
+  steps:
+    - uses: pnpm/action-setup@v6.0.10
+    - uses: actions/setup-node@v7.0.0
+      with:
+        cache: pnpm
+        cache-dependency-path: pnpm-lock.yaml
+        node-version-file: package.json
+    - run: pnpm install --frozen-lockfile
+      shell: bash
+    - run: pnpm check
+      shell: bash
+  using: composite

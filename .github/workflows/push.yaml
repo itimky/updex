@@ -1,0 +1,15 @@
+jobs:
+  check:
+    name: Check
+    runs-on: ubuntu-26.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: ./.github/actions/check
+name: Push
+on:
+  pull_request:
+  push:
+    branches:
+      - '**'
+permissions:
+  contents: read
