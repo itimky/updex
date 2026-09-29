@@ -1,6 +1,6 @@
 catalog:
   prettier: ^3.9.6
-  turbo: ^2.11.4
+  turbo: ^2.11.5
   typescript: ^7.0.2
   vitest: ^5.0.1
 catalogMode: strict
