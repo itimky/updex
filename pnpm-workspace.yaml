@@ -1,8 +1,8 @@
 catalog:
-  prettier: ^3.9.6
-  turbo: ^2.11.4
+  prettier: ^3.9.10
+  turbo: ^2.11.7
   typescript: ^7.0.2
-  vitest: ^5.0.1
+  vitest: ^5.0.4
 catalogMode: strict
 engineStrict: true
 ignoreScripts: true
